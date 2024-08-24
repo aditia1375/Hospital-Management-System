@@ -1,0 +1,83 @@
+<%- include('partials/header') %>
+  <div class="container mt-5">
+    <h1>Register</h1>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-body">
+            <form action="/doctorregister" method="POST">
+            <!-- Makes POST request to /register route -->
+            <h2>Personal Information</h2>
+            <div>
+                <label for="full_name">Full Name:</label>
+                <input type="text" id="full_name" name="full_name" required>
+            </div>
+            <div>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label for="date_of_birth">Date of Birth:</label>
+                <input type="date" id="date_of_birth" name="date_of_birth" required>
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+    
+            <!-- Professional Information -->
+            <h2>Professional Information</h2>
+            <div>
+                <label for="specialization">Medical Specialization/Department:</label>
+                <input type="text" id="specialization" name="specialization" required>
+            </div>
+            <div>
+                <label for="license_number">Medical License Number:</label>
+                <input type="text" id="license_number" name="license_number" required>
+            </div>
+            <div>
+                <label for="education">Education and Qualifications:</label>
+                <input type="text" id="education" name="education" required>
+            </div>
+            <div>
+                <label for="certifications">Professional Certifications:</label>
+                <input type="text" id="certifications" name="certifications">
+            </div>
+            <div>
+                <label for="years_of_experience">Years of Experience:</label>
+                <input type="number" id="years_of_experience" name="years_of_experience" required>
+            </div>
+            <div>
+              <label for="department">Department:</label>
+              <input type="text" id="department" name="department" required>
+          </div>
+          <div>
+            <label for="roomnumber">Room Number:</label>
+            <input type="text" id="roomnumber" name="roomnumber" required>
+        </div>
+          <div>
+            <label for="workinghours">Working Hours:</label>
+            <input type="number" id="workinghours" name="workinghours" required>
+        </div>
+       
+            <button type="submit">Register</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+
+  <%- include('partials/header') %>

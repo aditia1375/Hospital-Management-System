@@ -1,0 +1,86 @@
+<%- include('partials/header') %>
+<style>
+   
+    .tab {
+      background-color: #f1f1f1;
+      float: left;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      padding: 10px 20px;
+      transition: background-color 0.3s;
+    }
+    
+   
+    .tab:hover {
+      background-color: #ddd;
+    }
+    
+ 
+    .tabcontent {
+      display: none;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+    </style>
+    <h1> Doctor <%= doctor %></h1>
+    <div class="tab" onclick="openTab('Dashboard')">Dashboard</div>
+    <div class="tab" onclick="openTab('Appointments')">Appointments</div>
+    <div class="tab" onclick="openTab('Patients')">Patients</div>
+    <div class="tab" onclick="openTab('Complains')">Complains</div>
+    
+    <div id="Dashboard" class="tabcontent">
+        <h1>Dashboard</h1>
+        <p>Dashboard here!</p>
+    </div>
+    <div id="Appointments" class="tabcontent">
+      <h3>Appointments</h3>
+      <p>Welcome to the Appointments Page!</p>
+      <h2>Today's Appointments: <%= pendingAppointments %> Total Cases: <%= totalCases %></h2>
+    <!-- <div id="calendar"></div> -->
+
+    <% patients.forEach(patient => { %>
+        <div> 
+            <label>
+                <input type="checkbox" name="patient" value="<%= patient.name %>">
+                <a href="/prescription/<%=patient.id %>"><%= patient.name %></a>
+            </label>    
+        </div>
+    <% }); %>
+    </div>
+    
+    <div id="Patients" class="tabcontent">
+      <h3>Patients</h3>
+      <% allPatients.forEach(patient => { %>
+        <div> 
+            <label>
+                <input type="checkbox" name="patient" value="<%= patient.name %>">
+                <a href="/PatientRecord/<%=patient.email %>"><%= patient.name %></a>
+            </label>    
+        </div>
+    <% }); %>
+    </div>
+    
+    <div id="Complains" class="tabcontent">
+      <h3>Complains</h3>
+     <textarea name="Complains" id="Complains" cols="30" rows="5"></textarea>
+     <button type="button">Submit</button>
+    </div>
+    
+
+    
+
+    <script>
+      function openTab(tabName) {
+      var i;
+      var tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      document.getElementById(tabName).style.display = "block";
+    }
+    </script>
+    
+    
+      
+<%- include('partials/footer') %>

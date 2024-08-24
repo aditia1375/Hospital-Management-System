@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+<h1>Prescription</h1>
+<p>Id: <span id="patientId"><%= patient.id %></span></p>
+<p>Name: <%= patient.name %></p>
+<p>Age: <%= patient.age %></p>
+<p>Gender: <%= patient.gender %></p>
+<p>Phone: <%= patient.phone %></p>
+<p>Date: <%= patient.date %></p>
+<p>Description: <%= patient.message %></p>
+
+<h2>Symptoms:</h2>
+<textarea name="symptoms" id="symptoms" cols="30" rows="5" readonly><%= patient.symptoms %></textarea>
+
+<h2>Tests:</h2>
+<textarea name="tests" id="tests" cols="30" rows="5" readonly><%= patient.tests %></textarea>
+
+<h2>Medicine:</h2>
+<textarea name="medicines" id="medicines" cols="30" rows="5" readonly><%= patient.medicines %></textarea>
+
+<h2>Additional Information:</h2>
+<textarea name="additionalinfo" id="additionalinfo" cols="30" rows="5" readonly><%= patient.additionalinfo %></textarea>
+
+<%- include('partials/footer') %>

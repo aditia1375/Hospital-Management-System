@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+ <h1>Dr.<%= doctor.full_name %></h1>
+ 
+ <%- include('partials/header') %>
+
+<h1>Doctor Information</h1>
+
+<div>
+    <p><strong>Name:</strong> <%= doctor.full_name %></p>
+    <p><strong>Gender:</strong> <%= doctor.gender %></p>
+    <p><strong>Date of Birth:</strong> <%= doctor.dateOfBirth %></p>
+    <p><strong>Contact Information:</strong></p>
+    <ul>
+        <li><strong>Phone:</strong> <%= doctor.phone %></li>
+        <li><strong>Email:</strong> <%= doctor.email %></li>
+    </ul>
+</div>
+
+<div>
+    <p><strong>Professional Information:</strong></p>
+    <ul>
+        <li><strong>Specialization/Department:</strong> <%= doctor.specialization %></li>
+        <li><strong>Medical License Number:</strong> <%= doctor.licenseNumber %></li>
+        <li><strong>Education and Qualifications:</strong> <%= doctor.education %></li>
+        <li><strong>Professional Certifications:</strong> <%= doctor.certifications %></li>
+        <li><strong>Years of Experience:</strong> <%= doctor.yearsOfExperience %></li>
+    </ul>
+</div>
+
+<div>
+    <p><strong>Work Schedule:</strong></p>
+    <ul>
+        <li><strong>Working Hours/Days:</strong> <%= doctor.workingHours %></li>
+    </ul>
+</div>
+
+<div>
+    <p><strong>Hospital Affiliation:</strong></p>
+    <ul>
+        <li><strong>Department or Clinic:</strong> <%= doctor.department %></li>
+        <li><strong>Room Number/Location within the Hospital:</strong> <%= doctor.roomNumber %></li>
+    </ul>
+</div>
+
+<!-- <div>
+    <p><strong>Patient Reviews and Ratings:</strong></p>
+    <ul>
+        <li><strong>Feedback from Patients:</strong> < doctor.feedback %></li>
+        <li><strong>Ratings or Reviews from Previous Patients:</strong> <doctor.ratings %></li>
+        <li><strong>Testimonials:</strong> < doctor.testimonials %></li>
+    </ul>
+</div> -->
+
+<%- include('partials/footer') %>

@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+<h2>Previous Prescriptions</h2>
+  <div class="container">
+    <div class="sidebar">
+       
+        <% PatientRecord.forEach(patient => { %>
+            <div>
+                <label>
+                    <input type="checkbox" name="prev" readonly>
+                    <a href="/prevPrescription/<%=patient.id %>"><%= patient.date %></a>
+                </label>    
+            </div>
+        <% }); %> 
+      
+    </div>
+  
+    <div class="main-content">
+    </div>
+</div>
+<%- include('partials/footer') %>

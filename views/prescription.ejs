@@ -1,0 +1,87 @@
+<%- include('partials/header') %>
+<h1>Prescription</h1>
+<p>Id: <span id="patientId"><%= patient.id %></span></p>
+<p>Name: <%= patient.name %></p>
+<p>Age: <%= patient.age %></p>
+<p>Gender: <%= patient.gender %></p>
+<p>Phone: <%= patient.phone %></p>
+<p>Date: <%= patient.date %></p>
+<p>Description: <%= patient.message %></p>
+
+<h2>Symptoms:</h2>
+<textarea name="symptoms" id="symptoms" cols="30" rows="5"><%= patient.symptoms %></textarea>
+
+<h2>Tests:</h2>
+<textarea name="tests" id="tests" cols="30" rows="5"><%= patient.tests %></textarea>
+
+<h2>Medicine:</h2>
+<textarea name="medicines" id="medicines" cols="30" rows="5"><%= patient.medicines %></textarea>
+
+<h2>Additional Information:</h2>
+<textarea name="additionalinfo" id="additionalinfo" cols="30" rows="5"><%= patient.additionalinfo %></textarea>
+
+<button type="button" onclick="submitPrescription()">Submit</button>
+
+<script>
+  function submitPrescription() {  
+    const prescriptionData = {
+      id: document.getElementById('patientId').innerText.replace('Id: ', ''),
+      symptoms: document.getElementById('symptoms').value,
+      tests: document.getElementById('tests').value,
+      medicines: document.getElementById('medicines').value,
+      additionalinfo: document.getElementById('additionalinfo').value
+    };
+
+    fetch('/save-prescription', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(prescriptionData),
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to save prescription');
+      }
+      console.log('Prescription saved successfully');
+      window.location.href = "/homedoctor";
+    })
+    .catch(error => {
+      console.error('Error saving prescription:', error);
+    });
+  }
+</script>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>Previous Prescriptions</h2>
+        <% prev.forEach(patient => { %>
+            <div>
+                <label>
+                    <input type="checkbox" name="prev" readonly>
+                    <a href="/prevPrescription/<%= patient.id %>"><%= patient.date %></a>
+                </label>    
+            </div>
+        <% }); %>
+    </div>
+    <div class="main-content">
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: row-reverse; 
+    }
+
+    .sidebar {
+        width: 300px; /* Adjust as needed */
+    }
+
+    .main-content {
+        flex: 1;
+    }
+</style>
+
+
+<%- include('partials/footer') %>
